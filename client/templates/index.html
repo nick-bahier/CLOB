@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLOB — Consolidated Order Book</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header id="header">
+        <div class="header-left">
+            <h1>CLOB</h1>
+            <span id="market-name" class="market-name">—</span>
+        </div>
+        <div class="header-right">
+            <div id="venue-statuses" class="venue-statuses"></div>
+            <div id="ws-status" class="ws-status disconnected">Disconnected</div>
+        </div>
+    </header>
+
+    <div id="crossed-banner" class="crossed-banner hidden">
+        <span class="crossed-icon">⚠</span>
+        <span id="crossed-text">CROSSED</span>
+    </div>
+
+    <main>
+        <section class="ladder-section">
+            <h2>Aggregated Ladder</h2>
+            <div class="ladder-container">
+                <table id="agg-table" class="ladder-table">
+                    <thead>
+                        <tr>
+                            <th class="col-size bid-col">Bid Size</th>
+                            <th class="col-price">Price</th>
+                            <th class="col-size ask-col">Ask Size</th>
+                        </tr>
+                    </thead>
+                    <tbody id="agg-body"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="ladder-section">
+            <h2>Venue-Split Ladder</h2>
+            <div class="ladder-container">
+                <table id="split-table" class="ladder-table venue-split">
+                    <thead>
+                        <tr>
+                            <th class="col-venue-size bid-col">Kalshi Bid</th>
+                            <th class="col-venue-size bid-col">Poly Bid</th>
+                            <th class="col-size bid-col">Total Bid</th>
+                            <th class="col-price">Price</th>
+                            <th class="col-size ask-col">Total Ask</th>
+                            <th class="col-venue-size ask-col">Kalshi Ask</th>
+                            <th class="col-venue-size ask-col">Poly Ask</th>
+                        </tr>
+                    </thead>
+                    <tbody id="split-body"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <span id="last-update">Last update: —</span>
+    </footer>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

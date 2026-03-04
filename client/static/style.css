@@ -1,0 +1,330 @@
+/* ── Reset & Base ── */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #0e1117;
+    --surface: #161b22;
+    --border: #30363d;
+    --text: #e6edf3;
+    --text-muted: #8b949e;
+    --bid: #3fb950;
+    --bid-bg: rgba(63, 185, 80, 0.08);
+    --ask: #f85149;
+    --ask-bg: rgba(248, 81, 73, 0.08);
+    --crossed: #f0883e;
+    --crossed-bg: rgba(240, 136, 62, 0.15);
+    --stale: #d29922;
+    --stale-bg: rgba(210, 153, 34, 0.15);
+    --connected: #3fb950;
+    --disconnected: #f85149;
+}
+
+body {
+    font-family: 'SF Mono', 'Cascadia Code', 'Fira Code', monospace;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 13px;
+    line-height: 1.5;
+    min-height: 100vh;
+}
+
+/* ── Header ── */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 24px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+header h1 {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--text);
+}
+
+.market-name {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.venue-statuses {
+    display: flex;
+    gap: 12px;
+}
+
+.venue-status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+.venue-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--disconnected);
+}
+
+.venue-dot.connected {
+    background: var(--connected);
+}
+
+.venue-dot.stale {
+    background: var(--stale);
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+.venue-time {
+    font-size: 10px;
+    color: var(--text-muted);
+}
+
+.ws-status {
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.ws-status.connected {
+    color: var(--connected);
+    background: rgba(63, 185, 80, 0.1);
+}
+
+.ws-status.disconnected {
+    color: var(--disconnected);
+    background: rgba(248, 81, 73, 0.1);
+}
+
+/* ── Crossed Banner ── */
+.crossed-banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    background: var(--crossed-bg);
+    border-bottom: 2px solid var(--crossed);
+    color: var(--crossed);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    animation: crossedFlash 1s ease-in-out infinite;
+}
+
+.crossed-banner.hidden {
+    display: none;
+}
+
+@keyframes crossedFlash {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+.crossed-icon {
+    font-size: 18px;
+}
+
+/* ── Main Content ── */
+main {
+    display: flex;
+    gap: 24px;
+    padding: 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.ladder-section {
+    flex: 1;
+    min-width: 0;
+}
+
+.ladder-section h2 {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+.ladder-container {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+/* ── Tables ── */
+.ladder-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.ladder-table thead {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.ladder-table th {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 8px 12px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+}
+
+.ladder-table td {
+    padding: 5px 12px;
+    border-bottom: 1px solid rgba(48, 54, 61, 0.5);
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+}
+
+.col-price {
+    text-align: center !important;
+    width: 80px;
+}
+
+.col-size {
+    width: 100px;
+}
+
+.col-venue-size {
+    width: 90px;
+}
+
+.bid-col {
+    text-align: right !important;
+}
+
+.ask-col {
+    text-align: left !important;
+}
+
+/* ── Cell Styling ── */
+td.bid-cell {
+    color: var(--bid);
+    text-align: right;
+}
+
+td.ask-cell {
+    color: var(--ask);
+    text-align: left;
+}
+
+td.price-cell {
+    text-align: center;
+    font-weight: 600;
+    color: var(--text);
+}
+
+td.empty-cell {
+    color: var(--text-muted);
+    opacity: 0.3;
+}
+
+/* ── Crossed Row Highlighting ── */
+tr.crossed-row {
+    background: var(--crossed-bg) !important;
+}
+
+tr.crossed-row td.price-cell {
+    color: var(--crossed);
+}
+
+/* ── Stale Styling ── */
+td.stale {
+    opacity: 0.5;
+    font-style: italic;
+}
+
+.stale-tag {
+    display: inline-block;
+    font-size: 9px;
+    padding: 1px 4px;
+    border-radius: 3px;
+    background: var(--stale-bg);
+    color: var(--stale);
+    margin-left: 4px;
+    font-style: normal;
+    font-weight: 600;
+    vertical-align: middle;
+}
+
+/* ── Size Bars (visual depth) ── */
+td.bid-cell .size-bar {
+    display: block;
+    height: 2px;
+    background: var(--bid);
+    opacity: 0.3;
+    margin-top: 2px;
+    border-radius: 1px;
+    float: right;
+}
+
+td.ask-cell .size-bar {
+    display: block;
+    height: 2px;
+    background: var(--ask);
+    opacity: 0.3;
+    margin-top: 2px;
+    border-radius: 1px;
+    float: left;
+}
+
+/* ── Footer ── */
+footer {
+    padding: 8px 24px;
+    text-align: center;
+    font-size: 11px;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+}
+
+/* ── Scrollbar ── */
+.ladder-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.ladder-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.ladder-container::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 3px;
+}

@@ -1,0 +1,16 @@
+[
+    {"type":"snapshot","venue":"kalshi","delay_ms":0,"bids":[[55,150],[54,200],[53,350],[52,500],[51,420],[50,600],[48,300],[45,250]],"asks":[[57,120],[58,280],[59,400],[60,550],[61,300],[62,200],[65,150],[68,100]]},
+    {"type":"delta","delay_ms":800,"side":"bid","price":55,"size":180},
+    {"type":"delta","delay_ms":500,"side":"ask","price":57,"size":90},
+    {"type":"delta","delay_ms":600,"side":"bid","price":56,"size":75},
+    {"type":"delta","delay_ms":400,"side":"ask","price":56,"size":60},
+    {"type":"delta","delay_ms":700,"side":"bid","price":54,"size":250},
+    {"type":"delta","delay_ms":500,"side":"ask","price":57,"size":0},
+    {"type":"delta","delay_ms":600,"side":"ask","price":58,"size":310},
+    {"type":"delta","delay_ms":800,"side":"bid","price":56,"size":120},
+    {"type":"delta","delay_ms":500,"side":"bid","price":57,"size":40},
+    {"type":"delta","delay_ms":400,"side":"ask","price":57,"size":100},
+    {"type":"delta","delay_ms":1000,"side":"bid","price":55,"size":0},
+    {"type":"delta","delay_ms":600,"side":"ask","price":56,"size":0},
+    {"type":"delta","delay_ms":500,"side":"bid","price":53,"size":400}
+]

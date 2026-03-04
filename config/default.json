@@ -1,0 +1,25 @@
+{
+    "market_name": "US Recession by End of 2026",
+    "outcome": "Yes",
+    "stale_threshold_s": 5.0,
+    "staleness_check_interval_s": 1.0,
+    "kalshi": {
+        "market_ticker": "KXRECSSNBER-26",
+        "api_key_id": "c67a04e2-3d81-4bfd-9bed-8478f8d09158",
+        "private_key_path": "/Users/nicolasbahier/.kalshi/private_key.pem",
+        "use_demo": false,
+        "use_fixture": true,
+        "fixture_path": "fixtures/kalshi.json"
+    },
+    "polymarket": {
+        "token_id": "100379208559626151022751801118534484742123694725746262280150222742563282755057",
+        "condition_id": "0xfdc73f10edf0266756686f35b5712cffa828b0940fc015e0426c76c934c2105d",
+        "use_fixture": false,
+        "fixture_path": "fixtures/polymarket.json"
+    },
+    "server": {
+        "host": "0.0.0.0",
+        "port": 8765,
+        "static_dir": "client"
+    }
+}

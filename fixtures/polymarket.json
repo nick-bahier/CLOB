@@ -1,0 +1,15 @@
+[
+    {"type":"snapshot","venue":"polymarket","delay_ms":0,"bids":[{"price":"0.54","size":"180"},{"price":"0.53","size":"300"},{"price":"0.52","size":"450"},{"price":"0.51","size":"280"},{"price":"0.50","size":"500"},{"price":"0.48","size":"350"},{"price":"0.45","size":"200"}],"asks":[{"price":"0.58","size":"200"},{"price":"0.59","size":"350"},{"price":"0.60","size":"420"},{"price":"0.61","size":"280"},{"price":"0.62","size":"150"},{"price":"0.65","size":"100"}]},
+    {"type":"delta","delay_ms":1000,"side":"bid","price":55,"size":100},
+    {"type":"delta","delay_ms":700,"side":"ask","price":57,"size":150},
+    {"type":"delta","delay_ms":500,"side":"bid","price":54,"size":220},
+    {"type":"delta","delay_ms":800,"side":"ask","price":58,"size":170},
+    {"type":"delta","delay_ms":600,"side":"bid","price":56,"size":90},
+    {"type":"delta","delay_ms":400,"side":"ask","price":56,"size":80},
+    {"type":"delta","delay_ms":900,"side":"bid","price":55,"size":130},
+    {"type":"delta","delay_ms":500,"side":"ask","price":57,"size":0},
+    {"type":"delta","delay_ms":700,"side":"bid","price":57,"size":50},
+    {"type":"delta","delay_ms":600,"side":"ask","price":57,"size":200},
+    {"type":"delta","delay_ms":800,"side":"bid","price":53,"size":350},
+    {"type":"delta","delay_ms":500,"side":"ask","price":59,"size":400}
+]

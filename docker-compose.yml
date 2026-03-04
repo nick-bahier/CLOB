@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  clob:
+    build: .
+    ports:
+      - "8080:8080"
+      - "8765:8765"
+    volumes:
+      - ./config:/app/config
+      - ./fixtures:/app/fixtures
+    environment:
+      - CLOB_KALSHI_USE_FIXTURE=true
+      - CLOB_POLYMARKET_USE_FIXTURE=false
+      - CLOB_POLYMARKET_TOKEN_ID=100379208559626151022751801118534484742123694725746262280150222742563282755057
+    restart: unless-stopped
