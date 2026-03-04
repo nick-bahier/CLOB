@@ -2,6 +2,7 @@
 
 Pulls order book data from Kalshi and Polymarket for a prediction market, merges them together, and shows it in a browser with live updates.
 
+> **Note:** The default market configured is "US Recession by End of 2026" — a Yes/No binary market tracking the odds of a US recession. Polymarket is streaming live order book data. Kalshi is using recorded fixture data because the live setup is slow. The live Polymarket feed updates infrequently since prediction markets are much quieter than stock exchanges — updates only happen when someone places, cancels, or fills an order.
 ---
 
 ## How to Run
